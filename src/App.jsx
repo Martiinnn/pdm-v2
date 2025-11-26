@@ -8,6 +8,8 @@ import ProtectedRoute from './components/ProtectedRoute';
 import Landing from './pages/public/Landing';
 import Catalog from './pages/public/Catalog';
 import UserHome from './pages/public/UserHome';
+import Checkout from './pages/public/Checkout';
+import CheckoutSuccess from './pages/public/CheckoutSuccess';
 import AdminLogin from './pages/admin/Login';
 import AdminDashboard from './pages/admin/Dashboard';
 import { useAuth } from './components/context/AuthContext.jsx';
@@ -50,6 +52,8 @@ function AppContent() {
                     <Route path="/" element={<Landing onAddToCart={handleAddToCart} onContactClick={openContact} />} />
                     <Route path="/catalog" element={<Catalog onAddToCart={handleAddToCart} />} />
                     <Route path="/user" element={<UserHome />} />
+                    <Route path="/checkout" element={<Checkout />} />
+                    <Route path="/checkout/success" element={<CheckoutSuccess />} />
                     <Route path="/admin/login" element={<AdminLogin />} />
                     <Route
                         path="/admin/dashboard"

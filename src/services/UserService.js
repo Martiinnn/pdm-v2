@@ -1,10 +1,10 @@
-const BASE_URL = import.meta.env.VITE_API_URL || 'https://pdm-back-1.onrender.com';
+const BASE_URL = import.meta.env.VITE_API_URL || 'https://pdm-back-1.onrender.com/api';
 
 const jsonHeaders = { 'Content-Type': 'application/json' };
 
 const UserService = {
   async login({ correo, contrasena }) {
-    const res = await fetch(`${BASE_URL}/auth/login`, {
+    const res = await fetch(`${BASE_URL}/usuarios/login`, {
       method: 'POST',
       headers: jsonHeaders,
       body: JSON.stringify({ correo, contrasena })
@@ -15,7 +15,7 @@ const UserService = {
   },
 
   async createUser(usuario) {
-    const res = await fetch(`${BASE_URL}/users`, {
+    const res = await fetch(`${BASE_URL}/usuarios`, {
       method: 'POST',
       headers: jsonHeaders,
       body: JSON.stringify(usuario)
@@ -27,4 +27,3 @@ const UserService = {
 };
 
 export default UserService;
-

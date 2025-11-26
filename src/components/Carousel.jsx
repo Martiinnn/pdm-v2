@@ -125,12 +125,13 @@ const Carousel = ({ onAddToCart }) => {
                     <div className="carousel-container">
                         <div
                             className="carousel-track"
-                            style={{ transform: `translateX(-${currentSlide * 25}%)` }}
+                            style={{ width: `${slides.length * 100}%`, transform: `translateX(-${currentSlide * (100 / slides.length)}%)` }}
                         >
                             {slides.map((slide, index) => (
                                 <div
                                     key={slide.id}
                                     className={`car-slide ${index === currentSlide ? 'active' : ''} ${animationState[index] || ''}`}
+                                    style={{ width: `${100 / slides.length}%` }}
                                 >
                                     <div className="car-image">
                                         <img src={slide.img} alt={slide.alt} />

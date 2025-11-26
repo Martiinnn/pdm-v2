@@ -38,6 +38,16 @@ const VehicleService = {
         return res.json();
     },
 
+    async patch(id, partial) {
+        const res = await fetch(`${BASE_URL}/autos/${id}`, {
+            method: 'PATCH',
+            headers: jsonHeaders,
+            body: JSON.stringify(partial)
+        });
+        if (!res.ok) throw new Error('Error updating vehicle');
+        return res.json();
+    },
+
     async delete(id) {
         const res = await fetch(`${BASE_URL}/autos/${id}`, {
             method: 'DELETE'

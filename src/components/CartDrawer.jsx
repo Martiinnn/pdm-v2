@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const CartDrawer = ({ isOpen, onClose, cartItems, removeFromCart }) => {
     useEffect(() => {
@@ -17,6 +18,7 @@ const CartDrawer = ({ isOpen, onClose, cartItems, removeFromCart }) => {
         return sum + price;
     }, 0);
 
+    const navigate = useNavigate();
     if (!isOpen) return null;
 
     return (
@@ -45,7 +47,7 @@ const CartDrawer = ({ isOpen, onClose, cartItems, removeFromCart }) => {
                         <div className="h-full flex flex-col items-center justify-center text-gray-400">
                             <i className="fas fa-shopping-basket text-6xl mb-4 opacity-50"></i>
                             <p className="text-lg">Tu carrito está vacío</p>
-                            <button onClick={onClose} className="mt-4 text-blue-600 hover:underline">
+                            <button onClick={() => { onClose(); navigate('/catalog'); }} className="mt-4 text-blue-600 hover:underline">
                                 Ver vehículos
                             </button>
                         </div>
@@ -84,7 +86,7 @@ const CartDrawer = ({ isOpen, onClose, cartItems, removeFromCart }) => {
                                 ${total.toLocaleString('es-CL')}
                             </span>
                         </div>
-                        <button className="w-full py-3 bg-gradient-to-r from-blue-600 to-blue-800 text-white rounded-xl font-medium shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all">
+                        <button onClick={() => { onClose(); navigate('/checkout'); }} className="w-full py-3 bg-gradient-to-r from-blue-600 to-blue-800 text-white rounded-xl font-medium shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all">
                             Proceder al Pago
                         </button>
                     </div>

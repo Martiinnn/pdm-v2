@@ -22,12 +22,9 @@ const CreateUser = () => {
 
         try {
             const usuario = {
-                "nombre": form.nombre,
-                "correo": form.correo,
-                "contrasena": form.contrasena,
-                rol: {
-                    "id": 3
-                }
+                nombre: form.nombre,
+                correo: form.correo,
+                contrasena: form.contrasena
             }
             await UserService.createUser(usuario);
 

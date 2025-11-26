@@ -14,7 +14,7 @@ const AdminDashboard = () => {
     const [submitLoading, setSubmitLoading] = useState(false);
     const [formData, setFormData] = useState({
         modelo: '',
-        marca: 'Tesla',
+        marca: '',
         descripcion: '',
         rango: '',
         velocidad: '',
@@ -23,7 +23,7 @@ const AdminDashboard = () => {
         origen: 'USA',
         color: 'Blanco',
         tipoAutoId: '',
-        url: '/img/model_3.png'
+        url: ''
     });
 
     useEffect(() => {
@@ -58,7 +58,7 @@ const AdminDashboard = () => {
         setEditingVehicle(null);
         setFormData({
             modelo: '',
-            marca: 'Tesla',
+            marca: '',
             descripcion: '',
             rango: '',
             velocidad: '',
@@ -67,7 +67,7 @@ const AdminDashboard = () => {
             origen: 'USA',
             color: 'Blanco',
             tipoAutoId: vehicleTypes[0]?.id || '',
-            url: '/img/model_3.png'
+            url: ''
         });
         setIsModalOpen(true);
     };
@@ -343,16 +343,15 @@ const AdminDashboard = () => {
                                     />
                                 </div>
                                 <div>
-                                    <label className="block text-sm font-medium text-gray-300 mb-2">Imagen</label>
-                                    <select
+                                    <label className="block text-sm font-medium text-gray-300 mb-2">URL de imagen *</label>
+                                    <input
+                                        type="url"
+                                        required
                                         value={formData.url}
                                         onChange={(e) => setFormData({ ...formData, url: e.target.value })}
-                                        className="w-full px-4 py-2.5 bg-white/10 border border-white/20 rounded-lg text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
-                                    >
-                                        <option value="/img/model_s.png" className="bg-gray-800">Model S</option>
-                                        <option value="/img/model_3.png" className="bg-gray-800">Model 3</option>
-                                        <option value="/img/model_x.webp" className="bg-gray-800">Model X</option>
-                                    </select>
+                                        className="w-full px-4 py-2.5 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                                        placeholder="Ej: https://mi-cdn.com/autos/marca-modelo.png"
+                                    />
                                 </div>
                             </div>
                             <div>
