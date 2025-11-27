@@ -30,7 +30,6 @@ function AppContent() {
         setIsCartOpen(true);
     };
 
-    // Check if current route is admin route
     const isAdminRoute = location.pathname.startsWith('/admin');
 
     return (
